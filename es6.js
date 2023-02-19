@@ -30,3 +30,6 @@ const person = {
 const{name, age} = person;
 console.log(name);
 console.log(age);
+
+//output Noad Chomsky , 92
+//
