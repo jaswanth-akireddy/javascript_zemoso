@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+#container{
+    color: aliceblue;
+    text-align: center;
+    margin: 30px;
+}
+#btn{
+    margin-left: 310px;
+    margin-top: 200px;
+    background-color:rgb(34, 147, 64) ;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    font-size: larger;
+    border-radius: 100px;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+    </style>
+</head>
+<body>
+    <button id="btn" onclick="clickButtonFunction()">click me</button>
+    <div id="container"><p id="clicksCounter">the current session value is  0</p>
+        <p id="clicklCounter"> the current local value is 0</p>
+    </div>
+    
+    <script>
+          // This function increases the count
+  function clickButtonFunction() {
+
+    console.log('run');
+    if (localStorage.getItem("clicklCounter") === null) {
+    localStorage.setItem("clicklCounter", "0");
+    
+    }
+    if (sessionStorage.getItem("clicksCounter") === null){
+        sessionStorage.setItem("clicksCounter","0");
+    }
+    let lvalue = parseInt(localStorage.getItem("clicklCounter"));
+    let svalue = parseInt(sessionStorage.getItem("clicksCounter"));
+
+    let newlValue = lvalue + 1
+    let newsValue = svalue + 1
+    sessionStorage.setItem("clicksCounter",newsValue)
+    localStorage.setItem("clicklCounter", newlValue);
+    document.getElementById("clicksCounter").innerHTML = "the current session value is " + newsValue;
+    document.getElementById("clicklCounter").innerHTML = "the current local value is " + newlValue;
+
+}
+    </script>
+</body>
+</html>
